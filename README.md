@@ -6,7 +6,7 @@
 
 Simple Blog CMS
 -
-- Create, Show, Update,Delete Posts
+- Create, Show, Update, Delete Posts
 - User Authentication
 - [Powered by Laravel](https://laravel.com/).
 
@@ -25,5 +25,4 @@ You can see Demo in my website
 username: test01
 
 password: test01
-
 
