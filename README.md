@@ -8,6 +8,7 @@ Simple Blog CMS
 -
 - Create, Show, Update, Delete Posts
 - User Authentication
+- [Model Diagram](https://drawsql.app/sijad/diagrams/blog).
 - [Powered by Laravel](https://laravel.com/).
 
 [ Laravel is best PHP framework that is accessible, powerful, and provides tools required for large, robust applications. ]
