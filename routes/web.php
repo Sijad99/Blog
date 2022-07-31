@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth','verified'])->name('dashboard');
+
+Route::resource('/admin', 'App\Http\Controllers\Admin\AdminController');
