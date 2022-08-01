@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,19 @@ require __DIR__.'/auth.php';
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard2', function () {
     return view('dashboard');
 })->middleware(['auth','verified'])->name('dashboard');
 
-Route::resource('/admin', 'App\Http\Controllers\Admin\AdminController');
+Route::resource('dashboard', 'App\Http\Controllers\Admin\AdminController')
+    ->middleware(['auth','verified']);
+
+Route::get('dashboard/show/users', 'App\Http\Controllers\Admin\AdminController@users')
+    ->middleware(['auth','verified'])->name('dashboard.showUsers');
+
+Route::get('test',function (){
+
+    return \Carbon\Carbon::now()->timezone('Asia/Tehran');
+});

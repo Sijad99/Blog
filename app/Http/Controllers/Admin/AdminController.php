@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Hekmatinasser\Verta\Verta;
+
 
 class AdminController extends Controller
 {
@@ -87,5 +90,11 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function users()
+    {
+        $users = User::all();
+        return view('dashboard.users', compact(['users']));
     }
 }
