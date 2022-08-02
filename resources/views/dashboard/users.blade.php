@@ -6,15 +6,9 @@
 
 @section('body')
 
-
-
             <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
                 <div class="flex flex-col flex-wrap sm:flex-row ">
-
                     <div class="container mx-auto px-4 sm:px-8 max-w-8xl">
-
-
-
                         <div class="py-8">
                             <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full ">
                                 <h2 class="text-2xl leading-tight">
@@ -65,7 +59,6 @@
                                         </thead>
                                         <tbody>
 
-
                                         @foreach($users as $user)
                                             <tr >
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -76,7 +69,6 @@
                                                                     class="mx-auto object-cover rounded-full h-10 w-10 " />
                                                             </a>
                                                         </div>
-
                                                         <div class="mr-3">
                                                             <p class="text-gray-900 whitespace-no-wrap hover:text-blue-500">
                                                                 {{$user->name}}
@@ -84,7 +76,6 @@
                                                         </div>
                                                     </div>
                                                 </td>
-
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                     <p class="text-gray-900 whitespace-no-wrap hover:text-blue-500">
                                                         @foreach($user->roles as $role)
@@ -92,7 +83,6 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                     <p class="text-gray-900 whitespace-no-wrap hover:text-blue-500">
                                                         {{ Hekmatinasser\Verta\verta::instance($user->created_at)->formatDifference() }}
@@ -127,10 +117,19 @@
                                                         <a href="{{ route('dashboard.edit',$user->id)}}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#F9A602"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/></svg>
                                                         </a>
-                                                        <a href="{{ route('dashboard.destroy',$user->id)}}">
+
+{{--                                                        {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}--}}
+{{--                                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']); !!}--}}
+{{--                                                        {!! Form::close() !!}--}}
+                                                        <form method="POST" action="{{ route('dashboard.destroy' ,$user->id) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="Delete">
+                                                        <a href="#" onclick="event.preventDefault();this.closest('form').submit();">
                                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FF0000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
                                                         </a>
+                                                        </form>
                                                     </div>
+
                                                 </td>
                                             </tr>
 
@@ -186,9 +185,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
 
 @endsection

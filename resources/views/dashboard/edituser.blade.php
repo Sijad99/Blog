@@ -10,12 +10,9 @@
 
     <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
         <div class="flex flex-col flex-wrap sm:flex-row ">
-
             <div class="container mx-auto px-4 sm:px-8 max-w-8xl">
 {{--                alert--}}
-
                 @include('dashboard.partial-alert-users')
-
                 <div class="py-8">
                     <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full ">
                         <h2 class="text-2xl leading-tight">
@@ -52,16 +49,12 @@
                                     <div class=" border-red-900 border-2 rounded-lg">
                                         {!! Form::submit('Update', ['class' => 'w-full items-center hover:bg-red-500']); !!}
                                     </div>
-
-
                                     {!! Form::close() !!}
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
