@@ -30,7 +30,17 @@ Route::resource('dashboard', 'App\Http\Controllers\Admin\AdminController')
 Route::get('dashboard/show/users', 'App\Http\Controllers\Admin\AdminController@users')
     ->middleware(['auth','verified'])->name('dashboard.showUsers');
 
+
+
+
+
+
+
 Route::get('test',function (){
 
-    return \Carbon\Carbon::now()->timezone('Asia/Tehran');
+    $user = User::find(3);
+    if( in_array('ادمین' , $user->roles()->pluck('name')->toArray(),)){
+        dd('yes');
+    }
+
 });

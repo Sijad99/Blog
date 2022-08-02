@@ -30,7 +30,7 @@
 
         {{--              -----------navbar items --------}}
         <a class="@yield('ac1', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-                    href="@yield('lac1' , route('dashboard.index'))">
+                    href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <svg width="" height="20" fill="currentColor" viewBox="0 0 2048 1792"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@
         </a>
 
         <a class=" @yield('ac2', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-                    href="@yield('lac2' , route('dashboard.showUsers'))">
+                    href="{{ route('dashboard.showUsers')}}">
                             <span class="text-left">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor"
                                      viewBox="0 0 24 24" stroke="currentColor">
@@ -73,7 +73,7 @@
 {{--        </a>--}}
 
         <a class="@yield('ac4', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-           href="@yield('lac4' , route('dashboard.index'))">
+           href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <img alt="icon" height="17" width="17" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACkUlEQVR4nO2bv0scQRTHPznkmmjgmhRJKo3GFCk1REgbSKNNimAsLQJaWBmECP4JgVQhVboUaRIICAH7aMgfcEosJIeCaEBFNEFTzG5YzvvxZm9m3pqbDzy43Zt9833f3Z3d252DSCRiyTXgJfANOATOA8YhUAU+AzPALc+1XuA+UMsh3FecAK+B6z6LThkGfgUsziZqmJ3jlZUCFHoOvAWeA1/r1h8Dj3wVf7cAhaexlNH1BNjNfLcH3LYprCRs99AmaUA+AA+An8lyBXhnk0BqQJBBRki5bnkdGAdOk+UxYEKaTGpAjzRhAO41WPcdeJVZnnPd6RL6534av4HRBhpvJN+lbSqSwqRHQJHoAZaBaUzRKTVgLdNmTJrsMlLBXA5bcVOS6DIeAVJEA3cIA6pAP3DFMgYwI3xeREd3CAM+AZs5tvuRbOuVEAaMY/amLQPJtl4JYcAQsEHrW9pGl9kNYNC3uP95EBQRDdAWoE00QFuANtEAbQHaRAO0BWgTDdAWoE00QFuANpoG9Gc+5/m57ATNZ4LPME9+ACa1RGgaUAKmFPv/J6KriQZoC9AmGqAtQBtXV4Eq8BE4c5SvHSXMK/ChThO5MuAx5kVGSN5gHp13RDwFHOVZBt4DR47yteMq8NRFIlcGDAKLjnIFpetPgWiAtgBtXBkwj5m+ZjsJoj7KwAtBH63aeaHdLLFeh331Cvto1q7R6/emuDoCZrg4gTEPZWBW0Eerdl4o0jzBPHOKmxIHQW0B2kgN+ONVhR9EmqUG7HQgRIttl8mG0R/UbKPjZwX1fClAUdJYcV08wB1gvwDFtYt9POz9lFHM31O0i2wWW8CIr+JT+oAFYBU4UCo0GweJlgXc3pJHIt3AX2orHtxP20MfAAAAAElFTkSuQmCC">
                             </span>
@@ -83,7 +83,7 @@
         </a>
 
         <a class="@yield('ac5', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-           href="@yield('lac5' , route('dashboard.index'))">
+           href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-diff-fill" viewBox="0 0 16 16">
                                     <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8 6a.5.5 0 0 1 .5.5V8H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V9H6a.5.5 0 0 1 0-1h1.5V6.5A.5.5 0 0 1 8 6zm-2.5 6.5A.5.5 0 0 1 6 12h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
@@ -95,7 +95,7 @@
         </a>
 
         <a class="@yield('ac6', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-           href="@yield('lac6' , route('dashboard.index'))">
+           href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
                                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
@@ -108,7 +108,7 @@
         </a>
 
         <a class="@yield('ac7', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-           href="@yield('7' , route('dashboard.index'))">
+           href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"/>
@@ -120,7 +120,7 @@
         </a>
 
         <a class="@yield('ac8', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-           href="@yield('lac8' , route('dashboard.index'))">
+           href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16">
                                     <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
@@ -132,7 +132,7 @@
         </a>
 
         <a class="@yield('ac9', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
-           href="@yield('lac9' , route('dashboard.index'))">
+           href="{{ route('dashboard.index')}}">
                             <span class="text-left">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-plus-fill" viewBox="0 0 16 16">
                                     <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"/>
@@ -204,20 +204,27 @@
                         </div>
                     </div>
 
-                    <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
+
+
+                    <div class="relative p-1 flex items-center justify-end w-1/6 ml-5 mr-4 sm:mr-0 sm:right-auto">
+                        <span class="m-6">user</span>
                         <a href="#" class="block relative">
                             <img alt="profile" src="{{ url('/assets/images/user.png') }}"
                                  class="mx-auto object-cover rounded-full h-10 w-10 " />
                         </a>
+
                     </div>
-{{--                        //logout not working--}}
+
                     <div class="relative p-1 flex items-center justify-end sm:mr-0 sm:right-auto">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
                         <a href="{{route('logout')}}" class="block relative" onclick="event.preventDefault();this.closest('form').submit();">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left mx-auto object-cover h-10 w-10" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
                             </svg>
                         </a>
+                        </form>
                     </div>
 
 

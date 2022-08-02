@@ -13,22 +13,6 @@
 
                     <div class="container mx-auto px-4 sm:px-8 max-w-8xl">
 
-                        <!-- if Work Close Button Add hidden in class :) AminPanel  -->
-                        <div id="alert1"
-                            class="my-3  block  text-left text-white bg-green-500 h-12 flex items-center justify-center p-4 rounded-md relative"
-                            role="alert">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                class="flex-shrink-0 w-6 h-6 mx-2 stroke-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                                </path>
-                            </svg>
-                            این یک پیام موفقیت آمیز است.
-                            <button onclick="closeAlert()"
-                                class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-6 outline-none focus:outline-none">
-                                <span>×</span>
-                            </button>
-                        </div>
 
 
                         <div class="py-8">
@@ -115,22 +99,35 @@
                                                     </p>
                                                 </td>
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <span
-                                                        class="relative inline-block px-3 py-1 text-green-900 leading-tight">
-                                                        <span aria-hidden="true"
-                                                            class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                                    <span class="relative inline-block px-3 py-1 text-green-900 leading-tight">
+
+                                                        @if($user->email_verified_at == null)
+
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-red-200 opacity-50 rounded-full">
                                                         </span>
-                                                        <span class="relative hover:text-blue-500">
+                                                            <span class="relative hover:text-blue-500">
+                                                            غیر فعال
+                                                        </span>
+
+                                                        @else
+
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                                        </span>
+                                                            <span class="relative hover:text-blue-500">
                                                             فعال
                                                         </span>
+
+                                                        @endif
+
                                                     </span>
                                                 </td>
+
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                     <div class="flex">
-                                                        <a href="#">
+                                                        <a href="{{ route('dashboard.edit',$user->id)}}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#F9A602"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/></svg>
                                                         </a>
-                                                        <a href="#">
+                                                        <a href="{{ route('dashboard.destroy',$user->id)}}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FF0000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
                                                         </a>
                                                     </div>

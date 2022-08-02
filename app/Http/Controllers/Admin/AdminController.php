@@ -3,19 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Facades\Redirect;
 
 
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display main dashboard.
      *
      * @return Response | string
      */
@@ -58,14 +62,16 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing Users.
      *
      * @param  int  $id
      * @return Response | View
      */
     public function edit($id)
     {
-        return view('dashboard.forms');
+        $user = User::find($id);
+        $roles = Role::pluck('name','id');
+        return view('dashboard.edituser',compact(['user','roles']));
 
     }
 
@@ -74,11 +80,35 @@ class AdminController extends Controller
      *
      * @param Request $request
      * @param  int  $id
-     * @return Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required',],
+            'email' => ['required', 'email'],
+            'role' => ['required'],
+        ],[
+            'name.required' => 'فیلد نام ضروری است.',
+            'email.required' => 'فیلد ایمیل ضروری است.',
+            'email.email' => 'ایمیل معتبر نیست.',
+            'role.required' => 'فیلد نقش کاربر ضروری است.',
+        ]);
+
+        $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            if($request->password != null){
+                $user->password = Hash::make($request->password);
+            }
+            if( !in_array($request->role, $user->roles()->pluck('id')->toArray())){
+                $user->roles()->attach($request->role);
+            }
+            $user->save();
+            return redirect(route('dashboard.showUsers'));
+
+
+
     }
 
     /**
@@ -92,6 +122,11 @@ class AdminController extends Controller
         //
     }
 
+    /**
+     * Show Users List.
+     *
+     * @return View
+     */
     public function users()
     {
         $users = User::all();
