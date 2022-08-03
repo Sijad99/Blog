@@ -38,9 +38,10 @@ Route::get('dashboard/show/users', 'App\Http\Controllers\Admin\AdminController@u
 
 Route::get('test',function (){
 
-    $user = User::find(3);
-    if( in_array('ادمین' , $user->roles()->pluck('name')->toArray(),)){
-        dd('yes');
-    }
+    return Auth::user()->avatar->path;
+
+    return User::find(3)->avatar;
+
+
 
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Avatar;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
@@ -25,7 +26,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $auth = Auth::user();
+        return view('dashboard.index' , compact(['auth']));
     }
 
     /**
@@ -70,7 +72,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('name','id');
+        $roles = Role::pluck('name','id')->toArray();
+        array_unshift($roles , 'انتخاب کنید');
         return view('dashboard.edituser',compact(['user','roles']));
 
     }
@@ -88,11 +91,13 @@ class AdminController extends Controller
             'name' => ['required',],
             'email' => ['required', 'email'],
             'role' => ['required'],
+            'avatar' => ['mimes:jpg,png', 'max:1024']
         ],[
             'name.required' => 'فیلد نام ضروری است.',
             'email.required' => 'فیلد ایمیل ضروری است.',
             'email.email' => 'ایمیل معتبر نیست.',
-            'role.required' => 'فیلد نقش کاربر ضروری است.',
+            'role.mimes' => 'فرمت فایل ارسالی صحیح نیست.',
+            'role.max' => 'حجم فایل ارسالی بیشتر از حجم مجاز است.'
         ]);
 
         $user = User::find($id);
@@ -101,8 +106,23 @@ class AdminController extends Controller
             if($request->password != null){
                 $user->password = Hash::make($request->password);
             }
-            if( !in_array($request->role, $user->roles()->pluck('id')->toArray())){
+            if( !in_array($request->role, $user->roles()->pluck('id')->toArray()) && ($request->role != 0)){
                 $user->roles()->attach($request->role);
+            }
+            if($file = $request->file('avatar')){
+                $name = $file->getClientOriginalName();
+                $difname = time() . "-". $name ;
+                $mime = $file->getMimeType();
+                $file->Move('avatars', $difname);
+
+                $upload = new Avatar();
+                $upload->name = $name;
+                $upload->mimetype = $mime;
+                $upload->path = '/avatars/' . $difname;
+                $upload->user_id = $user->id;
+                $upload->save();
+                $user->avatar_id = $upload->id;
+
             }
             $user->save();
             return redirect(route('dashboard.showUsers'));
@@ -131,7 +151,8 @@ class AdminController extends Controller
      */
     public function users()
     {
+        $auth = Auth::user();
         $users = User::all();
-        return view('dashboard.users', compact(['users']));
+        return view('dashboard.users', compact(['users','auth']));
     }
 }

@@ -4,6 +4,16 @@
 @section('ac2') w-full font-thin text-blue-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500 bg-gradient-to-l from-white to-blue-100 border-l-4 border-blue-500  border-l-4 border-blue-500 @endsection
 @section('lac2') # @endsection
 
+@if($auth->avatar_id)
+@section('avatar')
+    {{$auth->avatar->path}}
+@endsection
+@endif
+
+@section('avatarName')
+    {{ $auth->name }}
+@endsection
+
 @section('body')
 
             <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
@@ -65,8 +75,12 @@
                                                     <div class="flex items-center">
                                                         <div class="flex-shrink-0">
                                                             <a class="block relative">
-                                                                <img alt="profil" src="{{ url('/assets/images/user.png') }}"
-                                                                    class="mx-auto object-cover rounded-full h-10 w-10 " />
+                                                                @if($user->avatar_id)
+                                                                    <img alt="profile" src="{{ $user->avatar->path }}" class="mx-auto object-cover rounded-full h-10 w-10 " />
+
+                                                                @else
+                                                                    <img alt="profile" src="{{ url('/assets/images/user.png') }}" class="mx-auto object-cover rounded-full h-10 w-10 " />
+                                                                @endif
                                                             </a>
                                                         </div>
                                                         <div class="mr-3">
@@ -77,9 +91,10 @@
                                                     </div>
                                                 </td>
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap hover:text-blue-500">
+                                                    <p class="text-gray-900 whitespace-no-wrap">
                                                         @foreach($user->roles as $role)
-                                                            {{$role->name}} <br>
+                                                            <span class="hover:text-blue-500">{{$role->name}}</span>
+                                                            <br>
                                                         @endforeach
                                                     </p>
                                                 </td>

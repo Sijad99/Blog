@@ -21,7 +21,6 @@
     @endforeach
 
 @else
-
     <!-- if Work Close Button Add hidden in class :) AminPanel  -->
     <div id="alert1" class="my-3  block  text-left text-white bg-green-500 h-12 flex items-center justify-center p-4 rounded-md relative" role="alert">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -38,3 +37,4 @@
     </div>
     <!-- end alert  -->
 @endif
+

@@ -25,25 +25,31 @@
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                             <div class="px-5 bg-white py-5 flex flex-col xs:flex-row xs:justify-between">
 
-                                    {!! Form::model($user , ['route' => ['dashboard.update', $user->id], 'method' => 'put','autocomplete'=>"off"]) !!}
+                                    {!! Form::model($user , ['route' => ['dashboard.update', $user->id], 'method' => 'put','autocomplete'=>"off", 'files' => true]) !!}
                                     <div class="w-full">
-                                        {!! Form::label('name', 'نام :', ['class' => '']); !!}
+                                        {!! Form::label('name', 'نام :', ['class' => 'text-lg']); !!}
                                         {!! Form::text('name', $user->name , ['class' => 'w-full hover:text-blue-500',]); !!}
                                         <br>
                                     </div>
                                     <div class="w-full">
-                                        {!! Form::label('email', 'آدرس ایمیل :', ['class' => '']); !!}
+                                        {!! Form::label('email', 'آدرس ایمیل :', ['class' => 'text-lg']); !!}
                                         {!! Form::text('email',  $user->email , ['class' => 'w-full hover:text-blue-500']); !!}
                                         <br>
                                     </div>
                                     <div class="w-full">
-                                        {!! Form::label('password', 'رمز عبور :', ['class' => '']); !!}
+                                        {!! Form::label('password', 'رمز عبور :', ['class' => 'text-lg']); !!}
                                         {!! Form::password('password' , ['class' => 'w-full block hover:text-blue-500','autocomplete'=>"new-password"]); !!}
                                         <br>
                                     </div>
                                     <div class="w-full">
-                                        {!! Form::label('roles', 'نقش کاربر :', ['class' => '']); !!}
+                                        {!! Form::label('roles', 'نقش کاربر :', ['class' => 'text-lg']); !!}
                                         {!! Form::select('role', $roles , null , ['class' => 'w-full']); !!}
+                                        <br>
+                                    </div>
+                                    <div class="w-full">
+                                        {!! Form::label('avatar', 'آواتار کاربر :', ['class' => 'block mb-2 text-lg font-medium text-gray-900']); !!}
+                                        {!! Form::file('avatar' , ['class' => 'w- block w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none']); !!}
+                                        <p class="mt-1 text-sm text-gray-500" id="file_input_help">فرمت های مجاز : JPG , PNG ( حداکثر ۱۰۲۴ کیلوبایت )</p>
                                         <br>
                                     </div>
                                     <div class=" border-red-900 border-2 rounded-lg">

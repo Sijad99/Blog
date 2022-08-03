@@ -75,7 +75,7 @@
         <a class="@yield('ac4', 'w-full font-thin text-gray-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start hover:text-blue-500')"
            href="{{ route('dashboard.index')}}">
                             <span class="text-left">
-                                <img alt="icon" height="17" width="17" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACkUlEQVR4nO2bv0scQRTHPznkmmjgmhRJKo3GFCk1REgbSKNNimAsLQJaWBmECP4JgVQhVboUaRIICAH7aMgfcEosJIeCaEBFNEFTzG5YzvvxZm9m3pqbDzy43Zt9833f3Z3d252DSCRiyTXgJfANOATOA8YhUAU+AzPALc+1XuA+UMsh3FecAK+B6z6LThkGfgUsziZqmJ3jlZUCFHoOvAWeA1/r1h8Dj3wVf7cAhaexlNH1BNjNfLcH3LYprCRs99AmaUA+AA+An8lyBXhnk0BqQJBBRki5bnkdGAdOk+UxYEKaTGpAjzRhAO41WPcdeJVZnnPd6RL6534av4HRBhpvJN+lbSqSwqRHQJHoAZaBaUzRKTVgLdNmTJrsMlLBXA5bcVOS6DIeAVJEA3cIA6pAP3DFMgYwI3xeREd3CAM+AZs5tvuRbOuVEAaMY/amLQPJtl4JYcAQsEHrW9pGl9kNYNC3uP95EBQRDdAWoE00QFuANtEAbQHaRAO0BWgTDdAWoE00QFuANpoG9Gc+5/m57ATNZ4LPME9+ACa1RGgaUAKmFPv/J6KriQZoC9AmGqAtQBtXV4Eq8BE4c5SvHSXMK/ChThO5MuAx5kVGSN5gHp13RDwFHOVZBt4DR47yteMq8NRFIlcGDAKLjnIFpetPgWiAtgBtXBkwj5m+ZjsJoj7KwAtBH63aeaHdLLFeh331Cvto1q7R6/emuDoCZrg4gTEPZWBW0Eerdl4o0jzBPHOKmxIHQW0B2kgN+ONVhR9EmqUG7HQgRIttl8mG0R/UbKPjZwX1fClAUdJYcV08wB1gvwDFtYt9POz9lFHM31O0i2wWW8CIr+JT+oAFYBU4UCo0GweJlgXc3pJHIt3AX2orHtxP20MfAAAAAElFTkSuQmCC">
+                                <img alt="icon" class="bi bi-file-earmark-diff-fill" height="17" width="17" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACkUlEQVR4nO2bv0scQRTHPznkmmjgmhRJKo3GFCk1REgbSKNNimAsLQJaWBmECP4JgVQhVboUaRIICAH7aMgfcEosJIeCaEBFNEFTzG5YzvvxZm9m3pqbDzy43Zt9833f3Z3d252DSCRiyTXgJfANOATOA8YhUAU+AzPALc+1XuA+UMsh3FecAK+B6z6LThkGfgUsziZqmJ3jlZUCFHoOvAWeA1/r1h8Dj3wVf7cAhaexlNH1BNjNfLcH3LYprCRs99AmaUA+AA+An8lyBXhnk0BqQJBBRki5bnkdGAdOk+UxYEKaTGpAjzRhAO41WPcdeJVZnnPd6RL6534av4HRBhpvJN+lbSqSwqRHQJHoAZaBaUzRKTVgLdNmTJrsMlLBXA5bcVOS6DIeAVJEA3cIA6pAP3DFMgYwI3xeREd3CAM+AZs5tvuRbOuVEAaMY/amLQPJtl4JYcAQsEHrW9pGl9kNYNC3uP95EBQRDdAWoE00QFuANtEAbQHaRAO0BWgTDdAWoE00QFuANpoG9Gc+5/m57ATNZ4LPME9+ACa1RGgaUAKmFPv/J6KriQZoC9AmGqAtQBtXV4Eq8BE4c5SvHSXMK/ChThO5MuAx5kVGSN5gHp13RDwFHOVZBt4DR47yteMq8NRFIlcGDAKLjnIFpetPgWiAtgBtXBkwj5m+ZjsJoj7KwAtBH63aeaHdLLFeh331Cvto1q7R6/emuDoCZrg4gTEPZWBW0Eerdl4o0jzBPHOKmxIHQW0B2kgN+ONVhR9EmqUG7HQgRIttl8mG0R/UbKPjZwX1fClAUdJYcV08wB1gvwDFtYt9POz9lFHM31O0i2wWW8CIr+JT+oAFYBU4UCo0GweJlgXc3pJHIt3AX2orHtxP20MfAAAAAElFTkSuQmCC">
                             </span>
             <span class="mx-4 text-md font-normal">
                                 پست ها
@@ -207,10 +207,9 @@
 
 
                     <div class="relative p-1 flex items-center justify-end w-1/6 ml-5 mr-4 sm:mr-0 sm:right-auto">
-                        <span class="m-6">user</span>
+                        <span class="m-6">@yield('avatarName', 'user')</span>
                         <a href="#" class="block relative">
-                            <img alt="profile" src="{{ url('/assets/images/user.png') }}"
-                                 class="mx-auto object-cover rounded-full h-10 w-10 " />
+                            <img alt="profile" src="@yield('avatar' , url('/assets/images/user.png'))" class="mx-auto object-cover rounded-full h-10 w-10 " />
                         </a>
 
                     </div>
@@ -218,7 +217,7 @@
                     <div class="relative p-1 flex items-center justify-end sm:mr-0 sm:right-auto">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                        <a href="{{route('logout')}}" class="block relative" onclick="event.preventDefault();this.closest('form').submit();">
+                        <a href="{{ route('logout')}}" class="block relative" onclick="event.preventDefault();this.closest('form').submit();">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left mx-auto object-cover h-10 w-10" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
